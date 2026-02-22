@@ -31,3 +31,20 @@ let allJobs = [
         status: "available"
     }
 ];
+// Generate more
+const names = ["Tech", "Cloud", "Soft", "Data", "Cyber", "Web", "App", "Dev", "Mega", "Global"];
+const roles = ["Developer", "Designer", "Engineer", "Manager", "Analyst"];
+const cities = ["New York", "London", "Remote", "Dhaka", "Austin"];
+
+for (let i = 4; i <= 40; i++) {
+    allJobs.push({
+        id: i,
+        company: names[i % names.length] + " Solutions " + i,
+        position: roles[i % roles.length],
+        location: cities[i % cities.length],
+        type: "Full-time",
+        salary: "$100k - $150k",
+        description: "This is a simple job description. Join our team to build amazing products.",
+        status: "available"
+    });
+}

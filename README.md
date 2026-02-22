@@ -1,4 +1,7 @@
 Question 1:What is the difference between getElementById, getElementsByClassName,and querySelector/querySelectorAll??
+
+
+
 Answer::
 1.getElementById() selects an element using its id attribute. Since id is unique in an HTML document, it returns only one element.
 It is less flexible because it works only with id, not with class, tag, or other selectors.
@@ -21,7 +24,10 @@ It is very flexible because it supports all types of CSS selectors.
 It returns a NodeList, which is a static collection. If the DOM changes, the NodeList does not update automatically.
 
 
+
 Question 2:How do you create and insert a new element into the DOM??
+
+
 Answer:1️. Create the Element
 First, I create a new element using a DOM method.
 At this stage, the element is created in memory only. It is not yet visible on the webpage because it is not attached to the document structure.
@@ -31,7 +37,11 @@ This step prepares the element before inserting it into the DOM.
 3️. Insert the Element into the DOM
 Finally, I insert the element into a parent element in the document.
 
+
 Question 3::What is Event Bubbling?And how does it work??
+
+
+
 Answer:Event Bubbling:
 Event bubbling is a mechanism in the DOM event system where an event starts from the target element and then propagates upward through its parent elements until it reaches the root of the document.
 In simple words, when I click on a child element, the event does not stop there. It moves upward to its parent, then to the grandparent, and continues up the DOM tree.
@@ -43,8 +53,11 @@ When an event occurs on an element:
 4️. Finally, it reaches the document object.
 This upward movement of the event is called bubbling, because it moves upward like a bubble in water.
 
+
 Question 4.What is Event Delegation in Javascript?Why is it useful?
-Event Delegation::
+
+
+Answer:Event Delegation::
 Event delegation is a technique in which I attach a single event listener to a parent element instead of adding event listeners to multiple child elements.
 Because of event bubbling, when an event occurs on a child element, it bubbles up to the parent. I can catch that event on the parent and determine which child actually triggered it.
 In simple words: I handle events at the parent level instead of each child individually.
@@ -60,6 +73,10 @@ Fewer event listeners mean lower memory consumption.
  4.Easier Event Management:
 Instead of managing many listeners, I manage only one.
 
+
 Question 5:What is the difference between preventDefault() and stopPropagation() methods?
+
+
+
 Answer:preventDefault() is used to stop the default action of an element. For example, a form normally submits data when I click the submit button, or a link navigates to another page when clicked. If I use preventDefault(), that default behavior will not happen, and I can implement my own custom behavior.
 On the other hand, stopPropagation() is used to stop event bubbling. In JavaScript, events normally propagate from the target element to its parent elements. For example, if a button is inside a div and both have event listeners, clicking the button may trigger both events due to bubbling. If I use stopPropagation(), the event will not move to parent elements, and only the target element’s event handler will execute.

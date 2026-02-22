@@ -143,7 +143,11 @@ function renderJobs(statusFilter = "available") {
     }
 
     // Update the list count header
-    document.getElementById("jobs-header-count").innerText = jobsToShow.length + " jobs";
+    if (statusFilter === "available") {
+        document.getElementById("jobs-header-count").innerText = allJobs.length + " jobs";
+    } else {
+        document.getElementById("jobs-header-count").innerText = jobsToShow.length + " of " + allJobs.length + " Jobs ";
+    }
 
     // EMPTY STATE - Show if no jobs in this tab
     if (jobsToShow.length === 0) {

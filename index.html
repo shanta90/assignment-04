@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
+    <!-- UI Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
+    <body class="min-h-screen p-6 md:p-16">
+
+    <div class="max-w-4xl mx-auto">
+
+        <!-- App Header -->
+        <h1 class="text-3xl font-extrabold text-slate-800 mb-8">Job Application Tracker</h1>
+
+        <!-- Stats Counter Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Total Jobs -->
+            <div class="stats-card">
+                <p class="text-sm font-bold text-gray-400 mb-1">Total</p>
+                <div id="total-count" class="text-4xl font-black text-slate-800">0</div>
+            </div>
     
 </body>
 </html>

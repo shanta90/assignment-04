@@ -38,6 +38,22 @@
                 <div id="rejected-count" class="text-4xl font-black text-red-500">0</div>
             </div>
         </div>
+<!-- Jobs Header and Tabs -->
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-extrabold text-slate-700">Available Jobs</h2>
+            <span id="jobs-header-count" class="text-sm font-bold text-gray-400">0 jobs</span>
+        </div>
+
+        <!-- Filter Tabs (Buckets) -->
+        <div id="filters" class="flex gap-2 mb-8">
+            <!-- 'All' refers to 'available' jobs in beginner logic -->
+            <button id="filter-all" onclick="filterJobs('available')"
+                class="btn btn-sm btn-primary rounded-md capitalize px-6 font-bold">All</button>
+            <button id="filter-interview" onclick="filterJobs('interview')"
+                class="btn btn-sm bg-white text-gray-500 border-gray-200 hover:bg-gray-50 rounded-md capitalize px-6 font-bold">Interview</button>
+            <button id="filter-rejected" onclick="filterJobs('rejected')"
+                class="btn btn-sm bg-white text-gray-500 border-gray-200 hover:bg-gray-50 rounded-md capitalize px-6 font-bold">Rejected</button>
+        </div>
 
     
 </body>

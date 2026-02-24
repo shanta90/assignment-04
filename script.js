@@ -136,9 +136,15 @@ function renderJobs(statusFilter = "available") {
 
     // Get jobs for the selected tab
     let jobsToShow = [];
-    for (let i = 0; i < allJobs.length; i++) {
-        if (allJobs[i].status === statusFilter) {
-            jobsToShow.push(allJobs[i]);
+    if (statusFilter === "available") {
+        // 'All' tab shows everything
+        jobsToShow = allJobs;
+    } else {
+        // Specific tabs show filtered items
+        for (let i = 0; i < allJobs.length; i++) {
+            if (allJobs[i].status === statusFilter) {
+                jobsToShow.push(allJobs[i]);
+            }
         }
     }
 
@@ -185,7 +191,8 @@ function renderJobs(statusFilter = "available") {
             badgeStyle = "bg-red-100 text-red-600";
             badgeText = "REJECTED";
         }
-let card = `
+
+        let card = `
             <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 mb-6 relative">
                 <div class="flex justify-between items-start">
                     <div>

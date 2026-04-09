@@ -85,7 +85,7 @@ Use the URL printed in the terminal.
 
 | Item | Link |
 |------|------|
-| **Live demo** | _Add your deployed URL after publishing (e.g. Netlify, Vercel, GitHub Pages)_ |
+| **Live demo** | https://shanta90.github.io/assignment-04 |
 | **Tailwind CSS** | https://tailwindcss.com |
 | **DaisyUI** | https://daisyui.com |
 | **Google Fonts** | https://fonts.google.com |

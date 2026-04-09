@@ -1,102 +1,115 @@
-Question 1:What is the difference between getElementById, getElementsByClassName,and querySelector/querySelectorAll??
+# Job Application Tracker
 
+## Project overview
 
+**Job Application Tracker** is a lightweight, browser-based web app for browsing a job list and tracking each application’s status (not applied, interview, or rejected). Data lives in memory in a JavaScript array, so a full page refresh can reset the list. The UI uses **Tailwind CSS** and **DaisyUI** for a modern, responsive layout.
 
-Answer::
+## Screenshot
 
+![Job Application Tracker — dashboard](assets/Screenshot%202026-04-09%20220417.png)
 
-1️. Selector Type:
-getElementById() selects a single element using its id attribute. Since an id is unique within the document, it always returns only one element. getElementsByClassName() selects elements based on their class name, which can be shared by multiple elements. On the other hand, querySelector() and querySelectorAll() use CSS selectors, allowing selection by id, class, tag, attribute, or even complex selectors.
+The dashboard shows summary stats (Total, Interview, Rejected), filter tabs (All, Interview, Rejected), and job cards with company, role, location, type, salary, status badge, description, and actions (including delete).
 
+## Tech stack
 
-2️. Return Type:
-getElementById() returns a single HTMLElement, making it straightforward to work with. getElementsByClassName() returns an HTMLCollection, which can hold multiple elements. querySelector() returns the first matching element, while querySelectorAll() returns all matching elements as a NodeList.
+| Technology | Role |
+|------------|------|
+| **HTML5** | Structure and markup |
+| **Vanilla JavaScript** | Data, filters, and DOM updates |
+| **Tailwind CSS** (CDN) | Utility-first styling |
+| **DaisyUI** (CDN) | UI components (e.g. `btn`) |
+| **Google Fonts — Inter** | Typography |
+| **CSS** | `style.css` (linked; add custom rules as needed) |
 
+## Features
 
-3️. Live vs Static Collection:
-getElementById() returns a single element, so live/static distinction is not applicable. getElementsByClassName() returns a live collection, meaning if elements are added or removed in the DOM, the collection updates automatically. querySelector() returns a single static element, and querySelectorAll() returns a static NodeList that does not update automatically when the DOM changes.
+- **Dashboard stats:** Live counts for total jobs, interview stage, and rejected.
+- **Tab filters:** **All** (every job), **Interview**, and **Rejected** views.
+- **Job cards:** Company, position, location, employment type, salary, description, and a status badge.
+- **Actions:** Move a job to **Interview** or **Rejected**, or **delete** a card.
+- **Empty state:** Friendly message when a tab has no jobs.
+- **Responsive layout:** Grid and spacing adapt for mobile and desktop.
 
+## Dependencies and external resources
 
-4️. Flexibility / Complexity:
-getElementById() is simple and fast but limited to id selection. getElementsByClassName() only works with class names and cannot select by tag or attribute. querySelector() and querySelectorAll() are highly flexible as they support full CSS selector syntax, including pseudo-classes, attributes, and nested selectors.
+There is **no `package.json` / npm workflow**. Libraries load from CDNs in `index.html`:
 
+| Resource | Purpose |
+|----------|---------|
+| [Tailwind CSS](https://cdn.tailwindcss.com) | CSS framework (CDN) |
+| [DaisyUI](https://daisyui.com/) `full.min.css` | Component styles |
+| [Google Fonts — Inter](https://fonts.google.com/specimen/Inter) | Font family |
 
-5️. Performance Consideration:
-getElementById() is the fastest because it targets a unique element. getElementsByClassName() can be slightly slower, especially on large DOMs. querySelector() and querySelectorAll() are relatively slower, particularly with complex CSS selectors, but they offer maximum flexibility.
+Local files:
 
+- `index.html` — Main page  
+- `script.js` — Logic and sample data  
+- `style.css` — Linked from HTML (create the file if missing to avoid a 404 in devtools)
 
-6️. Selecting Single vs Multiple:
-getElementById() always selects a single element. getElementsByClassName() can select multiple elements and returns a live collection. querySelector() selects the first matching element, whereas querySelectorAll() selects all matching elements, returning a static NodeList that does not automatically update with DOM changes.
+## Running locally
 
+### Option 1: Open the file directly
 
+1. Clone or download the repository and open the project folder.  
+2. Double-click `index.html` to open it in your default browser.
 
-Question 2:How do you create and insert a new element into the DOM??
+If CDN assets are blocked, use Option 2, 3, or 4.
 
+### Option 2: VS Code Live Server
 
-Answer::
+1. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.  
+2. Right-click `index.html` → **Open with Live Server**.
 
-1️. Create the Element
-First, I create a new element using a DOM method.
-At this stage, the element is created in memory only. It is not yet visible on the webpage because it is not attached to the document structure.
-2️. Add Content or Attributes
-After creating the element, I add text content, attributes such as id or class, or apply styles if necessary.
-This step prepares the element before inserting it into the DOM.
-3️. Insert the Element into the DOM
-Finally, I insert the element into a parent element in the document.
+### Option 3: Python HTTP server
 
+From the project folder:
 
-Question 3::What is Event Bubbling?And how does it work??
+```bash
+# Python 3
+python -m http.server 8080
+```
 
+Then open `http://localhost:8080` in your browser.
 
+### Option 4: Node.js (`npx`)
 
-Answer::
+```bash
+npx --yes serve .
+```
 
-Event Bubbling:
-Event bubbling is a mechanism in the DOM event system where an event starts from the target element and then propagates upward through its parent elements until it reaches the root of the document.
-In simple words, when I click on a child element, the event does not stop there. It moves upward to its parent, then to the grandparent, and continues up the DOM tree.
-Mechanism of Event Bubbling :
-When an event occurs on an element:
-1️. The event is first triggered on the target element (the element that was actually clicked).
-2️. After that, the same event moves upward to its parent element.
-3️. Then it continues to the ancestor elements one by one.
-4️. Finally, it reaches the document object.
-This upward movement of the event is called bubbling, because it moves upward like a bubble in water.
+Use the URL printed in the terminal.
 
+---
 
-Question 4.What is Event Delegation in Javascript?Why is it useful?
+## Live demo and related links
 
+| Item | Link |
+|------|------|
+| **Live demo** | _Add your deployed URL after publishing (e.g. Netlify, Vercel, GitHub Pages)_ |
+| **Tailwind CSS** | https://tailwindcss.com |
+| **DaisyUI** | https://daisyui.com |
+| **Google Fonts** | https://fonts.google.com |
 
-Answer::
+### Hosting quick notes
 
-Event Delegation::
-Event delegation is a technique in which I attach a single event listener to a parent element instead of adding event listeners to multiple child elements.
-Because of event bubbling, when an event occurs on a child element, it bubbles up to the parent. I can catch that event on the parent and determine which child actually triggered it.
-In simple words: I handle events at the parent level instead of each child individually.
+- **GitHub Pages:** Push the repo, then **Settings → Pages** and set the branch/folder (e.g. `main` / root).  
+- **Netlify / Vercel:** Deploy as a static site via drag-and-drop or Git integration.
 
+---
 
-Usefulness of Event Delegation::
-Event delegation is useful for several reasons:
+## Project structure
 
- 1.Performance Improvement:
-If there are many child elements, adding separate event listeners to each one can be inefficient. Event delegation uses only one listener, which is better for performance.
+```
+assignment-04/
+├── index.html
+├── script.js
+├── style.css          ← optional; linked from HTML
+├── assets/
+│   ├── Screenshot 2026-04-09 220417.png
+│   └── readme-preview.png   ← optional older preview asset
+└── README.md
+```
 
- 2.Works for Dynamic Elements:
-If new child elements are added dynamically (after page load), they will automatically work with event delegation because the parent listener is already active.
+---
 
- 3.Reduces Memory Usage:
-Fewer event listeners mean lower memory consumption.
-
- 4.Easier Event Management:
-Instead of managing many listeners, I manage only one.
-
-
-Question 5:What is the difference between preventDefault() and stopPropagation() methods?
-
-
-
-Answer::
-
-preventDefault() is used to stop the default action of an element. For example, a form normally submits data when I click the submit button, or a link navigates to another page when clicked. If I use preventDefault(), that default behavior will not happen, and I can implement my own custom behavior.
-
-
-On the other hand, stopPropagation() is used to stop event bubbling. In JavaScript, events normally propagate from the target element to its parent elements. For example, if a button is inside a div and both have event listeners, clicking the button may trigger both events due to bubbling. If I use stopPropagation(), the event will not move to parent elements, and only the target element’s event handler will execute.
+**Learning focus:** DOM manipulation, event handling (`onclick`), array filtering, and dynamic UI updates using **vanilla JavaScript** only.
